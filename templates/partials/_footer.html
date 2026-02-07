@@ -1,0 +1,92 @@
+{% load static %}
+<footer class="site-footer site-footer-v2">
+  <!-- Footer background pattern -->
+  <div class="footer-v2-bg" aria-hidden="true"
+    style="--footer-pattern: url('{% static 'images/backgrounds/pattern2.png' %}');"></div>
+  <div class="container">
+    <!-- Top row: (brand + follow us) | quick links | contact -->
+    <div class="footer-v2-top">
+      <!-- First column: brand with follow us below -->
+      <div class="footer-v2-brand-block">
+        <!-- Brand: logo + tagline -->
+        <div class="footer-v2-brand">
+          <a href="/" class="logo logo-footer">
+            <img src="{% static 'images/logo/Logo.png' %}" alt="" class="logo-img" width="180" height="44">
+            <div class="logo-text-block">
+              <span class="logo-name">BHANJYANG</span>
+              <span class="logo-subtitle">Saving & Credit Cooperative</span>
+            </div>
+          </a>
+          <p class="footer-v2-tagline">Member-owned. Community-first.</p>
+          <p class="footer-v2-reg">Regd. No: 786/067/068</p>
+        </div>
+        <!-- Follow us: social icons (below brand) -->
+        <div class="footer-v2-social">
+          <span class="footer-v2-social-label">Follow us</span>
+          <ul class="footer-v2-social-list" aria-label="Social links">
+            <li><a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i
+                  class="fa-brands fa-facebook-f"></i></a></li>
+            <li><a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" aria-label="Twitter"><i
+                  class="fa-brands fa-x-twitter"></i></a></li>
+            <li><a href="https://www.youtube.com/" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i
+                  class="fa-brands fa-youtube"></i></a></li>
+          </ul>
+        </div>
+      </div>
+      <!-- Quick links nav -->
+      <!-- Quick links nav -->
+      <nav class="footer-v2-nav" aria-label="Quick Links">
+        <span class="footer-v2-nav-label">Quick Links</span>
+        <ul>
+          <li><a href="/">Home</a></li>
+          <li><a href="{% url 'coming_soon' %}">About Us</a></li>
+          <li><a href="{% url 'coming_soon' %}">Gallery</a></li>
+          <li><a href="{% url 'coming_soon' %}">News/Notices</a></li>
+          <li><a href="{% url 'coming_soon' %}">Downloads</a></li>
+        </ul>
+      </nav>
+
+      <!-- Services nav (New Column) -->
+      <nav class="footer-v2-nav" aria-label="Our Services">
+        <span class="footer-v2-nav-label">Our Services</span>
+        <ul>
+          <li><a href="{% url 'coming_soon' %}">Saving Schemes</a></li>
+          <li><a href="{% url 'coming_soon' %}">Loan Products</a></li>
+          <li><a href="{% url 'coming_soon' %}">Remittance</a></li>
+          <li><a href="{% url 'coming_soon' %}">Member Care</a></li>
+        </ul>
+      </nav>
+
+      <!-- Get in touch: phone, email, address, hours -->
+      <div class="footer-v2-contact">
+        <span class="footer-v2-contact-label">Get in touch</span>
+        <a href="https://maps.google.com/?q=Rupa+Rural+Municipality-5,+Deurali,+Kaski" target="_blank"
+          rel="noopener noreferrer" class="footer-v2-contact-link address-link">
+          <i class="fa-solid fa-location-dot" aria-hidden="true"></i> Rupa Rural Municipality-5, Deurali, Kaski
+        </a>
+        <a href="tel:+9779856083101" class="footer-v2-contact-link"><i class="fa-solid fa-phone" aria-hidden="true"></i>
+          +977 9856083101</a>
+        <a href="mailto:info@bhanjyang.coop.np" class="footer-v2-contact-link"><i class="fa-solid fa-envelope"
+            aria-hidden="true"></i> info@bhanjyang.coop.np</a>
+        <p class="footer-v2-contact-hours"><i class="fa-solid fa-clock" aria-hidden="true"></i> Sun–Fri: 10 AM – 4 PM
+        </p>
+        <div class="footer-v2-contact-socials"
+          style="display: flex; gap: var(--space-md); margin-top: var(--space-xs); margin-bottom: var(--space-xs);">
+          <a href="https://wa.me/9779856083101" target="_blank" class="footer-v2-contact-link" aria-label="WhatsApp">
+            <i class="fa-brands fa-whatsapp" aria-hidden="true" style="font-size: 1.25rem;"></i>
+          </a>
+          <a href="viber://chat?number=9779856083101" target="_blank" class="footer-v2-contact-link" aria-label="Viber">
+            <i class="fa-brands fa-viber" aria-hidden="true" style="font-size: 1.25rem;"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- Divider -->
+    <div class="footer-v2-divider" aria-hidden="true"></div>
+    <!-- Bottom row: copyright -->
+    <div class="footer-v2-bottom">
+      <!-- Copyright -->
+      <p class="footer-v2-copy">&copy; <span id="year"></span> Bhanjyang Cooperative. All rights reserved.</p>
+    </div>
+  </div>
+</footer>

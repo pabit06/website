@@ -1,0 +1,36 @@
+{% load static %}
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<div class="top-header" aria-label="Contact info">
+  <div class="top-header-inner">
+    <a href="tel:+9779856083101" class="top-header-link"><i class="fa-solid fa-phone top-header-icon"
+        aria-hidden="true"></i> +977 9856083101</a>
+    <a href="mailto:info@bhanjyang.coop.np" class="top-header-link"><i class="fa-solid fa-envelope top-header-icon"
+        aria-hidden="true"></i> info@bhanjyang.coop.np</a>
+  </div>
+</div>
+<header class="site-header" id="header">
+  <div class="header-inner">
+    <a href="/" class="logo">
+      <img src="{% static 'images/logo/Logo.png' %}" alt="" class="logo-img" width="180" height="44">
+      <div class="logo-text-block">
+        <span class="logo-name">BHANJYANG</span>
+        <span class="logo-subtitle">Saving & Credit Cooperative</span>
+      </div>
+    </a>
+    <button type="button" class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+      <span class="nav-toggle-bar"></span>
+    </button>
+    <nav class="nav" id="nav" aria-label="Main">
+      <ul class="nav-list">
+        <li><a href="/">Home</a></li>
+        <li><a href="{% url 'coming_soon' %}">About</a></li>
+        <li><a href="{% url 'coming_soon' %}">Services</a></li>
+        <li><a href="{% url 'coming_soon' %}">News</a></li>
+        <li><a href="{% url 'coming_soon' %}">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>

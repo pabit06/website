@@ -1,0 +1,20 @@
+# Django
+*.pyc
+__pycache__/
+db.sqlite3
+/static
+.DS_Store
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Artifacts
+.gemini/
+SUGGESTIONS.md
+task.md
