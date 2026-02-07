@@ -59,9 +59,9 @@ STATIC_URL = 'static/'
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 # Project-level static (root). App static: apps/home/static/
 STATICFILES_DIRS = [BASE_DIR / 'static']
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
 
-# Use in-memory SQLite only when running tests (project has no DB in dev)
+# Django requires a default DB. Use in-memory for tests; sqlite file otherwise (no models used).
 if 'test' in sys.argv:
     DATABASES = {
         'default': {
@@ -70,6 +70,11 @@ if 'test' in sys.argv:
         }
     }
 else:
-    DATABASES = {}
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        }
+    }
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
