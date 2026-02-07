@@ -144,6 +144,21 @@ Replace `yourdomain.com` with the actual domain you set in **Application URL**.
 - Restart the Python app from cPanel.
 - Open **https://yourdomain.com** (with the domain you set). If CSS is missing, run `python manage.py collectstatic --noinput` again from the project root inside the virtualenv.
 
+### 4.7 Updating the site (Babal Host – save this, बिर्सनु भए यही पढ्नुहोस्)
+
+जब पनि code update गर्नु हो:
+
+1. **Local:** change गर्नुहोस् → `git add` → `git commit` → `git push origin master` (GitHub मा पठाउनुहोस्)।
+2. **Server (cPanel Terminal):**
+   ```bash
+   cd /home/bhanjyan/Website
+   git pull origin master
+   ```
+3. **जरुरत भए:** नयाँ package भयो भने `pip install -r requirements.txt`; CSS/JS change भयो भने `python manage.py collectstatic --noinput` (virtualenv activate गरेर: `source /home/bhanjyan/virtualenv/Website/3.11/bin/activate`)।
+4. **cPanel:** Python app → **RESTART** थिच्नुहोस्।
+
+यो workflow **DEPLOYMENT.md** मा यहीँ लेखिएको छ — बिर्सनु भयो भने यो file खोलेर हेर्नुहोस्।
+
 ---
 
 ## 5. Post-Deployment Checks
