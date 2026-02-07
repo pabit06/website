@@ -64,7 +64,7 @@ website/
 
 ## Deployment
 
-Refer to [DEPLOYMENT.md](DEPLOYMENT.md) for a step-by-step guide to going live on platforms like Render or Vercel.
+Refer to [DEPLOYMENT.md](DEPLOYMENT.md) for a step-by-step guide to deploy on Babal Host (Nepal, cPanel).
 
 **Quick Checks:**
 -   Ensure `DEBUG=False` in production.

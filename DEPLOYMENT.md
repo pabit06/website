@@ -1,6 +1,6 @@
 # Deployment Guide
 
-This guide outlines how to deploy the **Bhanjyang Cooperative** website to production. Since the project is currently a lightweight Django application (without a production database configured), platforms like **Render** or **Vercel** are excellent, cost-effective choices.
+This guide outlines how to deploy the **Bhanjyang Cooperative** website to production on **Babal Host** (Nepal, cPanel).
 
 ---
 
@@ -16,68 +16,15 @@ I have already configured your project for production:
 2.  **Updated `requirements.txt`**: Includes these new packages.
 3.  **Configured `settings.py`**: Added `WhiteNoiseMiddleware` and set static storage.
 
-**You are ready to proceed to Step 2!**
+**You are ready to deploy.**
 
 ---
 
-## 2. Option A: Deploy to Render (Recommended)
-
-Render is great for Django apps. It connects to your GitHub repository and updates automatically when you push code.
-
-1.  **Push to GitHub**: Make sure your latest code (with the changes above) is on GitHub.
-2.  **Create Web Service**:
-    -   Log in to [Render.com](https://render.com).
-    -   Click **New +** -> **Web Service**.
-    -   Connect your GitHub repository.
-3.  **Configure Settings**:
-    -   **Name**: `bhanjyang-website`
-    -   **Runtime**: `Python 3`
-    -   **Build Command**: `pip install -r requirements.txt && python manage.py collectstatic --noinput`
-    -   **Start Command**: `gunicorn config.wsgi:application`
-4.  **Environment Variables**:
-    Add the following in the **Environment** tab:
-    -   `PYTHON_VERSION`: `3.10.0` (or your local version)
-    -   `SECRET_KEY`: (Generate a long random string)
-    -   `DEBUG`: `False`
-    -   `ALLOWED_HOSTS`: `*` (or your render URL, e.g., `bhanjyang.onrender.com`)
-
-Render will build and deploy your site. It implies SSL (HTTPS) automatically.
-
----
-
-## 3. Option B: Deploy to Vercel
-
-Vercel is excellent for static-like sites and offers a generous free tier.
-
-1.  Create a file named `vercel.json` in the root directory:
-    ```json
-    {
-      "builds": [{
-        "src": "config/wsgi.py",
-        "use": "@vercel/python",
-        "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-      }],
-      "routes": [
-        {
-          "src": "/(.*)",
-          "dest": "config/wsgi.py"
-        }
-      ]
-    }
-    ```
-2.  Install the Vercel CLI or connect your GitHub repo to Vercel.
-3.  In Vercel **Project Settings** -> **Environment Variables**, add:
-    -   `DEBUG`: `False`
-    -   `SECRET_KEY`: (Your secret key)
-    -   `ALLOWED_HOSTS`: `.vercel.app`
-
----
-
-## 4. Option C: Deploy to Babal Host (Nepal, cPanel)
+## 2. Deploy to Babal Host (Nepal, cPanel)
 
 [Babal Host](https://babal.host/python-hosting) offers Python/Django hosting with cPanel and **Install Python App**. Use this to run the site on your own domain in Nepal.
 
-### 4.1 Upload code
+### 2.1 Upload code
 
 **Note:** “SSH Access” in cPanel is only for managing SSH keys. To upload code, use **File Manager** (easiest) or **Terminal** (after SSH is set up).
 
@@ -91,7 +38,7 @@ Vercel is excellent for static-like sites and offers a generous free tier.
   ```
   (SSH Access पेजले key मात्र manage गर्छ; Terminal/SSH बाट login गर्दा त्यो key use हुन्छ।)
 
-### 4.2 Create Python app in cPanel
+### 2.2 Create Python app in cPanel
 
 1. Log in to **cPanel** (Babal Host login).
 2. Open **Setup Python App** or **Install Python App** (under Software).
@@ -101,7 +48,7 @@ Vercel is excellent for static-like sites and offers a generous free tier.
    - **Application URL:** Your domain or subdomain (e.g. `yourdomain.com` or `www.yourdomain.com`).
 4. Save. cPanel will create a virtualenv and show you its path (e.g. `~/virtualenv/website/3.10`).
 
-### 4.3 Install dependencies and collect static
+### 2.3 Install dependencies and collect static
 
 In cPanel open **Terminal** (or use SSH). Then:
 
@@ -119,7 +66,7 @@ pip install -r requirements.txt
 python manage.py collectstatic --noinput
 ```
 
-### 4.4 Point app to Django (Passenger)
+### 2.4 Point app to Django (Passenger)
 
 - In **Setup Python App** / **Application Manager**, set:
   - **Application startup file** or **WSGI file:** `passenger_wsgi.py`
@@ -127,7 +74,7 @@ python manage.py collectstatic --noinput
 - If there is a field for “Application entry point”, use: `application` (the variable name in `passenger_wsgi.py`).
 - Save and **Restart** the application.
 
-### 4.5 Environment variables (production)
+### 2.5 Environment variables (production)
 
 Set these so the site runs in production mode. In cPanel’s Python app settings, add **Environment Variables** (or use a `.env` file in the application root **only if** you don’t upload it to public places and your host allows it):
 
@@ -139,12 +86,12 @@ Set these so the site runs in production mode. In cPanel’s Python app settings
 
 Replace `yourdomain.com` with the actual domain you set in **Application URL**.
 
-### 4.6 Restart and test
+### 2.6 Restart and test
 
 - Restart the Python app from cPanel.
 - Open **https://yourdomain.com** (with the domain you set). If CSS is missing, run `python manage.py collectstatic --noinput` again from the project root inside the virtualenv.
 
-### 4.7 Updating the site (Babal Host – save this, बिर्सनु भए यही पढ्नुहोस्)
+### 2.7 Updating the site (बिर्सनु भए यही पढ्नुहोस्)
 
 जब पनि code update गर्नु हो:
 
@@ -161,8 +108,8 @@ Replace `yourdomain.com` with the actual domain you set in **Application URL**.
 
 ---
 
-## 5. Post-Deployment Checks
+## 3. Post-Deployment Checks
 
 -   **Visit your URL**: Ensure the site loads.
--   **Check Styles**: If CSS is missing, run `python manage.py collectstatic --noinput` (Render does this in the Build Command; on Babal Host run it in Terminal after activating the virtualenv).
--   **Security**: Ensure `DEBUG` is `False` and `SECRET_KEY` is set in your environment variables.
+-   **Check Styles**: If CSS is missing, run `python manage.py collectstatic --noinput` in Terminal (after activating the virtualenv).
+-   **Security**: Ensure `DEBUG` is `False` and `SECRET_KEY` is set in cPanel environment variables.

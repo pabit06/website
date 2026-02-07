@@ -1,20 +1,28 @@
-# Django
+# Django – never commit (each host has its own)
 *.pyc
 __pycache__/
 db.sqlite3
-/static
-.DS_Store
+staticfiles/
+media/
 
-# Environments
+# Secrets & environment (never commit – set on each host)
 .env
+.env.*
+!.env.example
+
+# Virtual env (local only – server uses its own)
 .venv
-env/
 venv/
+env/
 ENV/
 env.bak/
 venv.bak/
 
-# Artifacts
+# OS & editor
+.DS_Store
+*.log
+
+# Optional / project artifacts
 .gemini/
 SUGGESTIONS.md
 task.md
