@@ -24,7 +24,7 @@ DEBUG = os.environ.get('DEBUG', 'False').lower() in ('true', '1')
 # Comma-separated in production, e.g. bhanjyang.coop.np,www.bhanjyang.coop.np
 ALLOWED_HOSTS = [
     h.strip()
-    for h in os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost').split(',')
+    for h in os.environ.get('ALLOWED_HOSTS', '127.0.0.1,localhost,192.168.1.156').split(',')
     if h.strip()
 ]
 
