@@ -101,7 +101,7 @@ Replace `yourdomain.com` with the actual domain you set in **Application URL**.
    cd /home/bhanjyan/Website
    git pull origin master
    ```
-3. **जरुरत भए:** नयाँ package भयो भने `pip install -r requirements.txt`; CSS/JS change भयो भने `python manage.py collectstatic --noinput` (virtualenv activate गरेर: `source /home/bhanjyan/virtualenv/Website/3.11/bin/activate`)।
+3. **जरुरत भए:** नयाँ package भयो भने `pip install -r requirements.txt`; **नया app, CSS/JS वा images (जस्तै About पेज) add/change भयो भने अवश्य** `python manage.py collectstatic --noinput` चलाउनुहोस् (virtualenv activate गरेर: `source /home/bhanjyan/virtualenv/Website/3.11/bin/activate`)।
 4. **cPanel:** Python app → **RESTART** थिच्नुहोस्।
 
 यो workflow **DEPLOYMENT.md** मा यहीँ लेखिएको छ — बिर्सनु भयो भने यो file खोलेर हेर्नुहोस्।
