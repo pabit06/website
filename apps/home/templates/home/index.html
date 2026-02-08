@@ -1,229 +1,181 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description"
-    content="Bhanjyang Cooperative – Member-owned savings, credit, and insurance. Registered cooperative serving Nepal with transparent, community-first finance.">
-  <title>Bhanjyang Cooperative | Member-Owned Finance in Nepal</title>
-  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}/">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Bhanjyang Cooperative | Member-Owned Finance in Nepal">
-  <meta property="og:description"
-    content="Member-owned savings, credit, and insurance. Registered cooperative serving Nepal with transparent, community-first finance.">
-  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}/">
-  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo/Logo.png' %}">
-  <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Bhanjyang Cooperative | Member-Owned Finance in Nepal">
-  <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
-  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-</head>
+{% block content %}
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-content">
+    <p class="hero-label" data-aos="fade-down" data-aos-delay="100">Serving Rupa Rural Municipality Since 2012 ·</p>
+    <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
+      <span class="hero-title-line">Secure <span class="title-accent-words"><span
+            class="accent-green">Savings</span></span>. Fair <span class="title-accent-words"><span
+            class="accent-red">Credit</span></span>.</span>
+      <span class="hero-title-line">A Better <span class="title-accent-words"><span
+            class="accent-gold">Future</span></span>.</span>
+    </h1>
+    <p class="hero-desc" data-aos="fade-up" data-aos-delay="400">Experience financial growth with a cooperative that
+      puts you first. We provide transparent,
+      member-owned banking solutions designed to build wealth and strengthen our community.</p>
+    <div class="hero-actions">
+      <a href="{% url 'coming_soon' %}" class="btn btn-primary">Become a Member</a>
+      <a href="{% url 'coming_soon' %}" class="btn btn-secondary">Explore Services</a>
+    </div>
+  </div>
+  <div class="hero-scroll" aria-hidden="true">
+    <span class="hero-scroll-line"></span>
+  </div>
+</section>
 
-<body>
-  {% include 'partials/_header.html' %}
+<!-- Stats bar -->
+<section class="stats-bar" aria-label="Key figures">
+  <div class="container">
+    <ul class="stats-bar-list" data-aos="fade-up">
+      <li class="stats-bar-item">
+        <span class="stats-bar-value" data-count="500">0</span><span class="stats-bar-suffix">+</span>
+        <span class="stats-bar-label">Share Members</span>
+      </li>
+      <li class="stats-bar-item">
+        <span class="stats-bar-value" data-count="1.5">0</span><span class="stats-bar-suffix">Cr+</span>
+        <span class="stats-bar-label">Share Capital</span>
+      </li>
+      <li class="stats-bar-item">
+        <span class="stats-bar-value" data-count="14">0</span><span class="stats-bar-suffix">+</span>
+        <span class="stats-bar-label">Years of Service</span>
+      </li>
+    </ul>
+  </div>
+</section>
 
-  <main id="main">
-    <!-- Hero -->
-    <section class="hero">
-      <div class="hero-bg" aria-hidden="true"></div>
-      <div class="hero-content">
-        <p class="hero-label" data-aos="fade-down" data-aos-delay="100">Serving Rupa Rural Municipality Since 2008 ·</p>
-        <h1 class="hero-title" data-aos="fade-up" data-aos-delay="200">
-          <span class="hero-title-line">Secure <span class="title-accent-words"><span
-                class="accent-green">Savings</span></span>. Fair <span class="title-accent-words"><span
-                class="accent-red">Credit</span></span>.</span>
-          <span class="hero-title-line">A Better <span class="title-accent-words"><span
-                class="accent-gold">Future</span></span>.</span>
-        </h1>
-        <p class="hero-desc" data-aos="fade-up" data-aos-delay="400">Experience financial growth with a cooperative that
-          puts you first. We provide transparent,
-          member-owned banking solutions designed to build wealth and strengthen our community.</p>
-        <div class="hero-actions">
-          <a href="{% url 'coming_soon' %}" class="btn btn-primary">Become a Member</a>
-          <a href="{% url 'coming_soon' %}" class="btn btn-secondary">Explore Services</a>
-        </div>
-      </div>
-      <div class="hero-scroll" aria-hidden="true">
-        <span class="hero-scroll-line"></span>
-      </div>
-    </section>
+<!-- Quick actions -->
+<section class="section" aria-labelledby="quick-actions-heading">
+  <div class="container">
+    <h2 id="quick-actions-heading" class="section-title section-header" data-aos="fade-up">What we offer</h2>
+    <ul class="home-actions-grid">
+      <li data-aos="fade-up" data-aos-delay="100">
+        <a href="{% url 'coming_soon' %}" class="home-action-card">
+          <span class="home-action-icon"><i class="fa-solid fa-piggy-bank" aria-hidden="true"></i></span>
+          <span class="home-action-title">Saving Schemes</span>
+          <span class="home-action-desc">Daily, Monthly & Child Savings</span>
+        </a>
+      </li>
+      <li data-aos="fade-up" data-aos-delay="200">
+        <a href="{% url 'coming_soon' %}" class="home-action-card">
+          <span class="home-action-icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></span>
+          <span class="home-action-title">Loan Products</span>
+          <span class="home-action-desc">Agriculture, Business & Housing</span>
+        </a>
+      </li>
+      <li data-aos="fade-up" data-aos-delay="300">
+        <a href="{% url 'coming_soon' %}" class="home-action-card">
+          <span class="home-action-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
+          <span class="home-action-title">Remittance</span>
+          <span class="home-action-desc">Domestic & International Transfer</span>
+        </a>
+      </li>
+      <li data-aos="fade-up" data-aos-delay="400">
+        <a href="{% url 'coming_soon' %}" class="home-action-card">
+          <span class="home-action-icon"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
+          <span class="home-action-title">Share Member</span>
+          <span class="home-action-desc">Become a Proud Owner</span>
+        </a>
+      </li>
+    </ul>
+  </div>
+</section>
 
-    <!-- Stats bar -->
-    <section class="stats-bar" aria-label="Key figures">
-      <div class="container">
-        <ul class="stats-bar-list" data-aos="fade-up">
-          <li class="stats-bar-item">
-            <span class="stats-bar-value" data-count="500">0</span><span class="stats-bar-suffix">+</span>
-            <span class="stats-bar-label">Share Members</span>
+<!-- About -->
+<section class="section" id="about" aria-labelledby="about-heading">
+  <div class="container">
+    <div class="section-grid">
+      <div class="section-header" data-aos="fade-right">
+        <p class="section-label">Our Mission</p>
+        <h2 id="about-heading" class="section-title">Rooted in <span class="title-accent-words"><span
+              class="accent-green">Values</span></span>. Empowering <span class="title-accent-words"><span
+              class="accent-gold">Locals</span></span>.</h2>
+        <p class="section-text">Bhanjyang Cooperative is a pillar of financial stability in Rupa Rural Municipality.
+          We operate with full transparency, adhering to government cooperative regulations to ensure your deposits
+          are safe and your investments grow. Our goal is simple: to provide world-class financial services right
+          here in our village.</p>
+        <ul class="about-stats" aria-label="Quick stats">
+          <li class="about-stat">
+            <span class="about-stat-value" data-count="100">0</span><span class="about-stat-suffix">%</span>
+            <span class="about-stat-label">Transparent</span>
           </li>
-          <li class="stats-bar-item">
-            <span class="stats-bar-value" data-count="15">0</span><span class="stats-bar-suffix">Cr+</span>
-            <span class="stats-bar-label">Share Capital</span>
-          </li>
-          <li class="stats-bar-item">
-            <span class="stats-bar-value" data-count="18">0</span><span class="stats-bar-suffix">+</span>
-            <span class="stats-bar-label">Years of Service</span>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Quick actions -->
-    <section class="section" aria-labelledby="quick-actions-heading">
-      <div class="container">
-        <h2 id="quick-actions-heading" class="section-title section-header" data-aos="fade-up">What we offer</h2>
-        <ul class="home-actions-grid">
-          <li data-aos="fade-up" data-aos-delay="100">
-            <a href="{% url 'coming_soon' %}" class="home-action-card">
-              <span class="home-action-icon"><i class="fa-solid fa-piggy-bank" aria-hidden="true"></i></span>
-              <span class="home-action-title">Saving Schemes</span>
-              <span class="home-action-desc">Daily, Monthly & Child Savings</span>
-            </a>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="200">
-            <a href="{% url 'coming_soon' %}" class="home-action-card">
-              <span class="home-action-icon"><i class="fa-solid fa-hand-holding-dollar" aria-hidden="true"></i></span>
-              <span class="home-action-title">Loan Products</span>
-              <span class="home-action-desc">Agriculture, Business & Housing</span>
-            </a>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="300">
-            <a href="{% url 'coming_soon' %}" class="home-action-card">
-              <span class="home-action-icon"><i class="fa-solid fa-globe" aria-hidden="true"></i></span>
-              <span class="home-action-title">Remittance</span>
-              <span class="home-action-desc">Domestic & International Transfer</span>
-            </a>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="400">
-            <a href="{% url 'coming_soon' %}" class="home-action-card">
-              <span class="home-action-icon"><i class="fa-solid fa-users-viewfinder" aria-hidden="true"></i></span>
-              <span class="home-action-title">Share Member</span>
-              <span class="home-action-desc">Become a Proud Owner</span>
-            </a>
+          <li class="about-stat">
+            <span class="about-stat-value" data-count="24">0</span><span class="about-stat-suffix">/7</span>
+            <span class="about-stat-label">Support</span>
           </li>
         </ul>
       </div>
-    </section>
-
-    <!-- About -->
-    <section class="section" id="about" aria-labelledby="about-heading">
-      <div class="container">
-        <div class="section-grid">
-          <div class="section-header" data-aos="fade-right">
-            <p class="section-label">Our Mission</p>
-            <h2 id="about-heading" class="section-title">Rooted in <span class="title-accent-words"><span
-                  class="accent-green">Values</span></span>. Empowering <span class="title-accent-words"><span
-                  class="accent-gold">Locals</span></span>.</h2>
-            <p class="section-text">Bhanjyang Cooperative is a pillar of financial stability in Rupa Rural Municipality.
-              We operate with full transparency, adhering to government cooperative regulations to ensure your deposits
-              are safe and your investments grow. Our goal is simple: to provide world-class financial services right
-              here in our village.</p>
-            <ul class="about-stats" aria-label="Quick stats">
-              <li class="about-stat">
-                <span class="about-stat-value" data-count="100">0</span><span class="about-stat-suffix">%</span>
-                <span class="about-stat-label">Transparent</span>
-              </li>
-              <li class="about-stat">
-                <span class="about-stat-value" data-count="24">0</span><span class="about-stat-suffix">/7</span>
-                <span class="about-stat-label">Support</span>
-              </li>
-            </ul>
-          </div>
-          <div data-aos="fade-left">
-            <div class="about-card">
-              <p class="about-card-quote">“Our cooperative isn’t just about money; it’s about uplifting every household
-                in Rupa.”</p>
-              <p class="about-card-author">— Chairman's Message</p>
-            </div>
-          </div>
+      <div data-aos="fade-left">
+        <div class="about-card">
+          <p class="about-card-quote">“Our cooperative isn’t just about money; it’s about uplifting every household
+            in Rupa.”</p>
+          <p class="about-card-author">— Chairman's Message</p>
         </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
 
-    <!-- Why us -->
-    <section class="section why-us" id="why-us" aria-labelledby="why-us-heading">
-      <div class="container">
-        <div class="section-header" data-aos="fade-down">
-          <p class="section-label">Why Choose Bhanjyang</p>
-          <h2 id="why-us-heading" class="section-title">Financial Freedom, <span class="title-accent-words"><span
-                class="accent-green">Simplified</span></span>.</h2>
+<!-- Why us -->
+<section class="section why-us" id="why-us" aria-labelledby="why-us-heading">
+  <div class="container">
+    <div class="section-header" data-aos="fade-down">
+      <p class="section-label">Why Choose Bhanjyang</p>
+      <h2 id="why-us-heading" class="section-title">Financial Freedom, <span class="title-accent-words"><span
+            class="accent-green">Simplified</span></span>.</h2>
+    </div>
+    <ul class="why-us-grid">
+      <li data-aos="fade-up" data-aos-delay="100">
+        <div class="why-us-card">
+          <span class="why-us-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
+          <h3 class="why-us-title">Fair Interest Rates</h3>
+          <p class="why-us-desc">We offer competitive returns on savings and affordable rates on loans, ensuring
+            mutual benefit for all members.</p>
         </div>
-        <ul class="why-us-grid">
-          <li data-aos="fade-up" data-aos-delay="100">
-            <div class="why-us-card">
-              <span class="why-us-icon"><i class="fa-solid fa-scale-balanced" aria-hidden="true"></i></span>
-              <h3 class="why-us-title">Fair Interest Rates</h3>
-              <p class="why-us-desc">We offer competitive returns on savings and affordable rates on loans, ensuring
-                mutual benefit for all members.</p>
-            </div>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="200">
-            <div class="why-us-card">
-              <span class="why-us-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
-              <h3 class="why-us-title">Agricultural Focus</h3>
-              <p class="why-us-desc">Specialized loan products designed to support modern farming, livestock, and local
-                entrepreneurship.</p>
-            </div>
-          </li>
-          <li data-aos="fade-up" data-aos-delay="300">
-            <div class="why-us-card">
-              <span class="why-us-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
-              <h3 class="why-us-title">Digital Banking</h3>
-              <p class="why-us-desc">Access your account, check balances, and transfer funds easily with our forthcoming
-                mobile app services.</p>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- Testimonial -->
-    <section class="testimonial" aria-label="Member voice">
-      <div class="container">
-        <blockquote class="testimonial-block" data-aos="zoom-in">
-          <p class="testimonial-quote">"Thanks to Bhanjyang's agriculture loan, I expanded my buffalo farm. The low
-            interest rate and easy repayment schedule made it possible."</p>
-          <footer class="testimonial-footer">— <strong>Ram Bahadur Gurung</strong>, Deurali, Kaski</footer>
-        </blockquote>
-      </div>
-    </section>
-
-    <!-- CTA -->
-    <section class="section cta-section" id="contact" aria-labelledby="cta-heading">
-      <div class="container">
-        <div class="cta-section-inner reveal">
-          <h2 id="cta-heading" class="cta-section-title">Ready to join?</h2>
-          <p class="cta-section-text">Visit us in Rupa Rural Municipality-5, Deurali, Kaski, or get in touch by phone or
-            email.</p>
-          <a href="{% url 'coming_soon' %}" class="btn btn-primary btn-lg">Get in touch</a>
+      </li>
+      <li data-aos="fade-up" data-aos-delay="200">
+        <div class="why-us-card">
+          <span class="why-us-icon"><i class="fa-solid fa-seedling" aria-hidden="true"></i></span>
+          <h3 class="why-us-title">Agricultural Focus</h3>
+          <p class="why-us-desc">Specialized loan products designed to support modern farming, livestock, and local
+            entrepreneurship.</p>
         </div>
-      </div>
-    </section>
-  </main>
+      </li>
+      <li data-aos="fade-up" data-aos-delay="300">
+        <div class="why-us-card">
+          <span class="why-us-icon"><i class="fa-solid fa-mobile-screen-button" aria-hidden="true"></i></span>
+          <h3 class="why-us-title">Digital Banking</h3>
+          <p class="why-us-desc">Access your account, check balances, and transfer funds easily with our forthcoming
+            mobile app services.</p>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
 
-  {% include 'partials/_footer.html' %}
+<!-- Testimonial -->
+<section class="testimonial" aria-label="Member voice">
+  <div class="container">
+    <blockquote class="testimonial-block" data-aos="zoom-in">
+      <p class="testimonial-quote">"Thanks to Bhanjyang's agriculture loan, I expanded my buffalo farm. The low
+        interest rate and easy repayment schedule made it possible."</p>
+      <footer class="testimonial-footer">— <strong>Ram Bahadur Gurung</strong>, Deurali, Kaski</footer>
+    </blockquote>
+  </div>
+</section>
 
-  <script src="{% static 'js/script.js' %}"></script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>
-    AOS.init({
-      duration: 800,
-      once: true,
-      offset: 100,
-      easing: 'ease-out-cubic',
-    });
-  </script>
-</body>
-
-</html>
+<!-- CTA -->
+<section class="section cta-section" id="contact" aria-labelledby="cta-heading">
+  <div class="container">
+    <div class="cta-section-inner reveal">
+      <h2 id="cta-heading" class="cta-section-title">Ready to join?</h2>
+      <p class="cta-section-text">Visit us in Rupa Rural Municipality-5, Deurali, Kaski, or get in touch by phone or
+        email.</p>
+      <a href="{% url 'coming_soon' %}" class="btn btn-primary btn-lg">Get in touch</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

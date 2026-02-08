@@ -1,155 +1,131 @@
+{% extends 'base.html' %}
 {% load static %}
-<!DOCTYPE html>
-<html lang="en">
 
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Bhanjyang Cooperative – Coming soon.">
-  <title>Coming Soon | Bhanjyang Cooperative</title>
-  <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    crossorigin="anonymous" referrerpolicy="no-referrer">
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
-  <style>
-    .coming-soon {
-      min-height: calc(100vh - var(--top-header-h) - var(--header-h));
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: var(--space-4xl) var(--space-lg);
-      text-align: center;
-      position: relative;
-      overflow: hidden;
+{% block title %}Coming Soon | Bhanjyang Cooperative{% endblock %}
+
+{% block extra_head %}
+<style>
+  .coming-soon {
+    min-height: calc(100vh - var(--top-header-h) - var(--header-h));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4xl) var(--space-lg);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Inherit complex hero background from global styles context or recreate */
+  .coming-soon-bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--bg);
+    background-image:
+      radial-gradient(at 0% 0%, rgba(27, 94, 32, 0.08) 0px, transparent 50%),
+      radial-gradient(at 100% 0%, rgba(191, 161, 95, 0.12) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(198, 40, 40, 0.05) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, white 0px, transparent 50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .coming-soon-card {
+    position: relative;
+    z-index: 1;
+    max-width: 640px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.65);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border-radius: var(--radius-lg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
+    padding: var(--space-3xl) var(--space-xl);
+    animation: cs-fade-up 0.8s var(--ease-out-expo) both;
+  }
+
+  .coming-soon-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-sm) var(--space-lg);
+    margin-bottom: var(--space-xl);
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--accent);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    border-radius: var(--radius-full);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+    border: 1px solid rgba(27, 94, 32, 0.1);
+  }
+
+  .coming-soon-badge i {
+    color: var(--accent-warm);
+  }
+
+  .coming-soon-title {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    color: var(--text);
+    margin-bottom: var(--space-md);
+  }
+
+  .coming-soon-desc {
+    font-size: clamp(1rem, 1.5vw + 0.9rem, 1.125rem);
+    line-height: 1.6;
+    color: var(--text-muted);
+    margin-bottom: var(--space-2xl);
+    max-width: 46ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .coming-soon-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-md);
+    justify-content: center;
+  }
+
+  @keyframes cs-fade-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
     }
 
-    /* Inherit complex hero background from global styles context or recreate */
-    .coming-soon-bg {
-      position: absolute;
-      inset: 0;
-      background-color: var(--bg);
-      background-image:
-        radial-gradient(at 0% 0%, rgba(27, 94, 32, 0.08) 0px, transparent 50%),
-        radial-gradient(at 100% 0%, rgba(191, 161, 95, 0.12) 0px, transparent 50%),
-        radial-gradient(at 100% 100%, rgba(198, 40, 40, 0.05) 0px, transparent 50%),
-        radial-gradient(at 0% 100%, white 0px, transparent 50%);
-      pointer-events: none;
-      z-index: 0;
+    to {
+      opacity: 1;
+      transform: translateY(0);
     }
+  }
+</style>
+{% endblock %}
 
-    .coming-soon-card {
-      position: relative;
-      z-index: 1;
-      max-width: 640px;
-      width: 100%;
-      background: rgba(255, 255, 255, 0.65);
-      backdrop-filter: blur(16px);
-      -webkit-backdrop-filter: blur(16px);
-      border-radius: var(--radius-lg);
-      border: 1px solid rgba(255, 255, 255, 0.2);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.05);
-      padding: var(--space-3xl) var(--space-xl);
-      animation: cs-fade-up 0.8s var(--ease-out-expo) both;
-    }
-
-    .coming-soon-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: var(--space-sm);
-      padding: var(--space-sm) var(--space-lg);
-      margin-bottom: var(--space-xl);
-      background: rgba(255, 255, 255, 0.8);
-      color: var(--accent);
-      font-size: 0.8125rem;
-      font-weight: 600;
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      border-radius: var(--radius-full);
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
-      border: 1px solid rgba(27, 94, 32, 0.1);
-    }
-
-    .coming-soon-badge i {
-      color: var(--accent-warm);
-    }
-
-    .coming-soon-title {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      font-size: clamp(2rem, 5vw + 1rem, 3.5rem);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
-      color: var(--text);
-      margin-bottom: var(--space-md);
-    }
-
-    .coming-soon-desc {
-      font-size: clamp(1rem, 1.5vw + 0.9rem, 1.125rem);
-      line-height: 1.6;
-      color: var(--text-muted);
-      margin-bottom: var(--space-2xl);
-      max-width: 46ch;
-      margin-left: auto;
-      margin-right: auto;
-    }
-
-    .coming-soon-actions {
-      display: flex;
-      flex-wrap: wrap;
-      gap: var(--space-md);
-      justify-content: center;
-    }
-
-    /* Remove custom button styles to inherit globals */
-
-    @keyframes cs-fade-up {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
-</head>
-
-<body>
-  {% include 'partials/_header.html' %}
-
-  <main id="main">
-    <section class="coming-soon" aria-labelledby="coming-soon-heading">
-      <div class="coming-soon-bg" aria-hidden="true"></div>
-      <div class="coming-soon-card">
-        <p class="coming-soon-badge" aria-hidden="true">
-          <i class="fa-solid fa-clock"></i>
-          Coming Soon
-        </p>
-        <h1 id="coming-soon-heading" class="coming-soon-title">
-          We're <span class="title-accent-words"><span class="accent-green">Growing</span></span> For You.
-        </h1>
-        <p class="coming-soon-desc">
-          We are currently expanding our digital services to better serve your financial needs. This feature will be
-          available shortly.
-        </p>
-        <div class="coming-soon-actions">
-          <a href="/" class="btn btn-primary">Return Home</a>
-          <a href="mailto:info@bhanjyang.coop.np" class="btn btn-secondary">Contact Us</a>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  {% include 'partials/_footer.html' %}
-
-  <script src="{% static 'js/script.js' %}"></script>
-</body>
-
-</html>
+{% block content %}
+<section class="coming-soon" aria-labelledby="coming-soon-heading">
+  <div class="coming-soon-bg" aria-hidden="true"></div>
+  <div class="coming-soon-card">
+    <p class="coming-soon-badge" aria-hidden="true">
+      <i class="fa-solid fa-clock"></i>
+      Coming Soon
+    </p>
+    <h1 id="coming-soon-heading" class="coming-soon-title">
+      We're <span class="title-accent-words"><span class="accent-green">Growing</span></span> For You.
+    </h1>
+    <p class="coming-soon-desc">
+      We are currently expanding our digital services to better serve your financial needs. This feature will be
+      available shortly.
+    </p>
+    <div class="coming-soon-actions">
+      <a href="/" class="btn btn-primary">Return Home</a>
+      <a href="mailto:info@bhanjyang.coop.np" class="btn btn-secondary">Contact Us</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

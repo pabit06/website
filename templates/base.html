@@ -1,0 +1,59 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="{% block meta_description %}Bhanjyang Cooperative – Member-owned savings, credit, and insurance. Registered cooperative serving Nepal with transparent, community-first finance.{% endblock %}">
+  <title>{% block title %}Bhanjyang Cooperative | Member-Owned Finance in Nepal{% endblock %}</title>
+  <link rel="canonical" href="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+  
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{% block og_title %}Bhanjyang Cooperative | Member-Owned Finance in Nepal{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}Bhanjyang Cooperative – Member-owned savings, credit, and insurance. Registered cooperative serving Nepal with transparent, community-first finance.{% endblock %}">
+  <meta property="og:url" content="{{ request.scheme }}://{{ request.get_host }}{{ request.path }}">
+  <meta property="og:image" content="{{ request.scheme }}://{{ request.get_host }}{% static 'images/logo/Logo.png' %}">
+  
+  <meta name="twitter:card" content="summary">
+  
+  <link rel="icon" href="{% static 'favicon/favicon.ico' %}" type="image/x-icon">
+  <link rel="apple-touch-icon" sizes="180x180" href="{% static 'favicon/apple-touch-icon.png' %}">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+  
+  {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+  {% include 'partials/_header.html' %}
+
+  <main id="main">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include 'partials/_footer.html' %}
+
+  <script src="{% static 'js/script.js' %}"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 800,
+      once: true,
+      offset: 100,
+      easing: 'ease-out-cubic',
+    });
+  </script>
+  {% block extra_js %}{% endblock %}
+</body>
+
+</html>
